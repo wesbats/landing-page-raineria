@@ -62,34 +62,6 @@ Acesse `http://localhost:8000`.
 
 ---
 
-## ☁️ Instruções para Deploy
-
-Pronto para deploy contínuo em qualquer provedor de hospedagem estática:
-
-### Vercel
-1. Conecte o repositório do GitHub na [Vercel](https://vercel.com).
-2. Framework Preset: **Other / Static HTML**.
-3. Root Directory: `./`.
-4. Clique em **Deploy**.
-
-### Netlify
-1. Conecte o repositório no [Netlify](https://www.netlify.com).
-2. Build command: *(deixar em branco)*.
-3. Publish directory: `.`.
-4. Clique em **Deploy Site**.
-
-### GitHub Pages
-1. No repositório do GitHub, acesse **Settings** > **Pages**.
-2. Em **Source**, selecione a branch `main` e a pasta `/ (root)`.
-3. Clique em **Save**.
-
-### Cloudflare Pages
-1. No painel da Cloudflare, selecione Workers & Pages > Create application > Pages.
-2. Conecte a conta do GitHub e selecione o repositório.
-3. Clique em **Save and Deploy**.
-
----
-
 ## 📞 Contato Profissional
 - **Profissional:** Rainéria Souza — Enfermeira Obstetra & Consultora em Amamentação
 - **WhatsApp:** (17) 99755-7070
