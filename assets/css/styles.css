@@ -217,6 +217,8 @@ p{color:var(--brown)}
 .credential-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px 0 32px}
 .credential-list>div{display:flex;gap:9px;align-items:center}
 .credential-list span{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#F3DED6;color:var(--terracotta);font-size:10px}
+.credential-list span .icon{width:11px;height:11px;stroke-width:2.2}
+.icon-btn-arrow{width:13px;height:13px;display:inline-block;vertical-align:middle;stroke-width:2.2;margin-left:2px}
 .credential-list strong{font-size:10px}
 
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
