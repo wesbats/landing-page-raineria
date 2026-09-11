@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://raineriaamamentacao.com.br/sitemap.xml
+Sitemap: https://proposta-raineria.wesbats.dev/sitemap.xml
