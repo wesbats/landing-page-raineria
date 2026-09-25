@@ -337,7 +337,6 @@ p{color:var(--brown)}
   .hero-grid{gap:36px}
   .hero-actions{display:flex;align-items:center;gap:11px;flex-wrap:nowrap}
   .hero-actions .btn{padding:13px 18px;font-size:13.5px;gap:8px;white-space:nowrap;flex:0 0 auto}
-  .credential-strip{grid-template-columns:1fr}
   .method-grid,.about-grid{gap:50px}
 }
 @media (max-width: 900px){
@@ -371,6 +370,7 @@ p{color:var(--brown)}
 }
 @media (max-width: 767px){
   .expectation-grid{grid-template-columns:1fr}
+  .credential-strip{grid-template-columns:1fr;gap:13px}
 }
 @media (max-width: 639px){
   html{--anchor-offset:74px}
@@ -393,8 +393,6 @@ p{color:var(--brown)}
   .hero-actions{display:grid;gap:13px}
   .hero-actions .btn{width:100%}
   .text-link{text-align:center}
-  .credential-strip{grid-template-columns:1fr 1fr}
-  .credential-strip .credential:last-child{grid-column:1/-1}
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-grid>div{border-right:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);padding:18px 13px}
   .trust-grid>div:nth-child(2n){border-right:0}
