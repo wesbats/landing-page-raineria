@@ -88,8 +88,8 @@ p{color:var(--brown)}
 .nav-cta{font-size:12px;padding:12px 18px}
 .mobile-menu-toggle{display:none;width:44px;height:44px;border:0;background:transparent;padding:10px}
 .mobile-menu-toggle span{display:block;height:2px;background:var(--dark);margin:6px 0;transition:.2s}
-.mobile-nav{display:block;max-height:0;overflow:hidden;visibility:hidden;opacity:0;transform:translateY(-8px);border-top:1px solid transparent;background:rgba(250,247,242,.98);transition:max-height .36s ease,opacity .24s ease,transform .36s ease,visibility 0s linear .36s,border-color .24s ease}
-.site-header.menu-open .mobile-nav{max-height:420px;visibility:visible;opacity:1;transform:translateY(0);border-color:var(--line);transition-delay:0s}
+.mobile-nav{position:absolute;top:100%;left:0;width:100%;display:block;max-height:0;overflow:hidden;visibility:hidden;opacity:0;transform:translateY(-8px);border-top:1px solid transparent;background:rgba(250,247,242,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 16px 36px rgba(44,36,32,.12);border-bottom:1px solid rgba(44,36,32,.08);transition:max-height .32s ease,opacity .22s ease,transform .32s ease,visibility 0s linear .32s,border-color .22s ease}
+.site-header.menu-open .mobile-nav{max-height:450px;visibility:visible;opacity:1;transform:translateY(0);border-color:var(--line);transition-delay:0s}
 .mobile-nav .container{display:grid;padding:14px 20px 20px;gap:0}
 .mobile-nav a{padding:14px 0;border-bottom:1px solid rgba(44,36,32,.08);font-weight:600;font-size:14px}
 

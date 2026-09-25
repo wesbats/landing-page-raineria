@@ -13,59 +13,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".mobile-menu-toggle");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav a");
+  const brandLink = document.querySelector(".site-header .brand");
+
+  const closeMenu = () => {
+    header?.classList.remove("menu-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Abrir menu");
+  };
+
+  const openMenu = () => {
+    header?.classList.add("menu-open");
+    menuToggle?.setAttribute("aria-expanded", "true");
+    menuToggle?.setAttribute("aria-label", "Fechar menu");
+  };
 
   menuToggle?.addEventListener("click", () => {
-    const open = header.classList.toggle("menu-open");
-    menuToggle.setAttribute("aria-expanded", String(open));
-    menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    const isOpen = header?.classList.contains("menu-open");
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  // Se o menu estiver aberto e clicar no nome/logo na nav, fecha o menu sem pular para a home
+  brandLink?.addEventListener("click", (event) => {
+    if (header?.classList.contains("menu-open")) {
+      event.preventDefault();
+      closeMenu();
+    }
+  });
+
+  // Fechar menu ao clicar fora dele
+  document.addEventListener("click", (event) => {
+    if (header?.classList.contains("menu-open") && !header.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  // Fechar menu com a tecla Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && header?.classList.contains("menu-open")) {
+      closeMenu();
+    }
   });
 
   mobileNavLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
-      const menuWasOpen = header.classList.contains("menu-open");
-
-      header.classList.remove("menu-open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      menuToggle?.setAttribute("aria-label", "Abrir menu");
+      closeMenu();
 
       if (!link.hash || !target) return;
 
       event.preventDefault();
-      const navigateToTarget = () => {
-        if (window.location.hash !== link.hash) {
-          window.location.hash = link.hash;
-        } else {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      };
-
-      if (!menuWasOpen) {
-        navigateToTarget();
-        return;
-      }
-
-      const mobileNav = document.querySelector(".mobile-nav");
-      let navigated = false;
-      let fallbackTimer;
-      const finishNavigation = (transitionEvent) => {
-        if (
-          navigated ||
-          (transitionEvent &&
-            (transitionEvent.target !== document.querySelector(".mobile-nav") ||
-              transitionEvent.propertyName !== "max-height"))
-        ) {
-          return;
-        }
-
-        navigated = true;
-        mobileNav?.removeEventListener("transitionend", finishNavigation);
-        window.clearTimeout(fallbackTimer);
-        navigateToTarget();
-      };
-
-      mobileNav?.addEventListener("transitionend", finishNavigation);
-      fallbackTimer = window.setTimeout(() => finishNavigation(), 400);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
