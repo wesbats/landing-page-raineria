@@ -392,10 +392,10 @@ p{color:var(--brown)}
   .hero-actions{display:grid;gap:13px}
   .hero-actions .btn{width:100%}
   .text-link{text-align:center}
-  .credential-strip{grid-template-columns:1fr;gap:14px;width:min(100%,350px);margin:32px auto 0}
+  .credential-strip{grid-template-columns:1fr;gap:14px;width:100%;margin:32px 0 0}
   .credential{align-items:center;gap:12px}
-  .credential strong{font-size:13px;line-height:1.25}
-  .credential small{font-size:11px;margin-top:2px;line-height:1.35}
+  .credential strong{font-size:14px;line-height:1.25}
+  .credential small{font-size:12px;margin-top:2px;line-height:1.35}
   .credential-icon{width:34px;height:34px;font-size:16px}
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-grid>div{border-right:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);padding:18px 13px}
