@@ -370,7 +370,6 @@ p{color:var(--brown)}
 }
 @media (max-width: 767px){
   .expectation-grid{grid-template-columns:1fr}
-  .credential-strip{grid-template-columns:1fr;gap:13px}
 }
 @media (max-width: 639px){
   html{--anchor-offset:74px}
@@ -393,6 +392,8 @@ p{color:var(--brown)}
   .hero-actions{display:grid;gap:13px}
   .hero-actions .btn{width:100%}
   .text-link{text-align:center}
+  .credential-strip{grid-template-columns:1fr 1fr;gap:16px 14px}
+  .credential-strip .credential:last-child{grid-column:1/-1;max-width:250px;margin:0 auto;width:100%}
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-grid>div{border-right:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);padding:18px 13px}
   .trust-grid>div:nth-child(2n){border-right:0}
