@@ -196,7 +196,7 @@ p{color:var(--brown)}
 .split-head>div:first-child{max-width:620px}
 .split-head>p{margin:0;padding-bottom:6px;max-width:480px;font-size:clamp(15px,1.2vw,17px);line-height:1.65;color:#594a43}
 .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.service-card{background:#fff;border:1px solid rgba(44,36,32,.08);border-radius:24px;padding:30px;position:relative;transition:.25s}
+.service-card{background:#fff;border:1px solid rgba(44,36,32,.08);border-radius:24px;padding:30px;position:relative;transition:.25s;display:flex;flex-direction:column}
 .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft)}
 .service-card.featured{border-color:rgba(184,90,66,.28);background:linear-gradient(180deg,#fff,#FFF7F3)}
 .service-tag{position:absolute;right:22px;top:20px;background:#F8E6E0;color:#8F3C28;padding:6px 10px;border-radius:999px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
@@ -210,18 +210,52 @@ p{color:var(--brown)}
 .service-card ul{padding:0;margin:18px 0 22px;list-style:none;display:grid;gap:10px}
 .service-card li{font-size:13.5px;line-height:1.45;color:#524741;display:flex;gap:10px;align-items:center}
 .service-card li:before{content:"✓";color:var(--sage);font-weight:700;font-size:14px}
-.service-card>a{font-size:13.5px;font-weight:700;color:var(--terracotta);display:inline-flex;align-items:center;gap:4px}
-.service-card-obstetric{background:linear-gradient(135deg,#FAF7F2 0%,#F5F9F6 100%);border-color:rgba(78,110,93,.32);box-shadow:0 4px 18px rgba(78,110,93,.06)}
+.service-card>a{font-size:13.5px;font-weight:700;color:var(--terracotta);display:inline-flex;align-items:center;gap:4px;margin-top:auto}
+.service-card-obstetric{grid-column:1/-1;display:grid;grid-template-columns:minmax(220px,280px) 1fr;gap:32px;align-items:stretch;background:linear-gradient(135deg,#FAF7F2 0%,#F5F9F6 100%);border-color:rgba(78,110,93,.32);box-shadow:0 4px 18px rgba(78,110,93,.06);padding:30px}
+.service-obstetric-image{width:100%;height:100%;min-height:280px;max-height:360px;object-fit:cover;object-position:50% 25%;border-radius:18px}
+.service-card-obstetric-body{display:flex;flex-direction:column;min-width:0}
+.service-card-obstetric-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.service-card-obstetric-header .service-icon{margin-bottom:0}
+.service-card-obstetric .service-tag-obstetric{position:static;display:inline-flex}
 .service-tag-obstetric{background:#E4ECE7;color:#2F5943}
+.service-card-obstetric-body h3{font-family:var(--serif);font-size:clamp(22px,2vw,26px);line-height:1.2;margin:0 0 12px}
+.service-card-obstetric-body p{font-size:14px;line-height:1.6;color:#5e534d;margin:0}
+.service-card-obstetric-body ul{padding:0;margin:16px 0 20px;list-style:none;display:grid;gap:10px}
+.service-card-obstetric-body li{font-size:13.5px;line-height:1.45;color:#524741;display:flex;gap:10px;align-items:center}
+.service-card-obstetric-body li:before{content:"✓";color:var(--sage);font-weight:700;font-size:14px}
+.service-card-obstetric-body>a{margin-top:auto;font-size:13.5px;font-weight:700;color:var(--terracotta);display:inline-flex;align-items:center;gap:4px}
 .service-card-taping{background:linear-gradient(135deg,#FAF7F2 0%,#FFF7F3 100%);border-color:rgba(184,90,66,.24)}
 .service-tag-complementary{background:#F7ECE6;color:#8F3C28}
-.service-note{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:#E9E5D5;border:1px solid rgba(78,110,93,.14);border-radius:18px;padding:16px 18px;margin-top:18px}
-.service-note>span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#D8E2DB;color:var(--sage);font-weight:700;flex:0 0 auto}
-.service-note>span .icon{width:15px;height:15px}
-.service-note p{font-size:12.5px;line-height:1.5;margin:0;color:#536057}
-.service-note strong{color:#2d3b32}
-.service-note-link{display:inline-flex;align-items:center;gap:5px;color:#2d3b32;font-size:12.5px;font-weight:700;white-space:nowrap}
-.service-note-link .icon{width:14px;height:14px}
+
+.service-card-whatsapp{background:linear-gradient(135deg,#FAF7F2 0%,#F1F6F3 100%);border-color:rgba(47,89,67,.26);box-shadow:0 4px 18px rgba(47,89,67,.05);display:flex;flex-direction:column}
+.service-card-whatsapp:hover{border-color:rgba(47,89,67,.4)}
+.service-card-whatsapp-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.service-card-whatsapp-header .service-icon{margin-bottom:0}
+.service-icon-whatsapp{background:#E3EFE7;color:#1E6E43}
+.service-card-whatsapp .service-tag-whatsapp{position:static;display:inline-flex;background:#E4ECE7;color:#244B36}
+.service-card-whatsapp ul{padding:0;margin:16px 0 20px;list-style:none;display:grid;gap:10px}
+.service-card-whatsapp li{font-size:13.5px;line-height:1.45;color:#524741;display:flex;gap:10px;align-items:center}
+.service-card-whatsapp li:before{content:"✓";color:#2E7D52;font-weight:700;font-size:14px}
+.service-whatsapp-link{margin-top:auto;font-size:13.5px;font-weight:700;color:#1E6E43;display:inline-flex;align-items:center;gap:5px;text-decoration:none;transition:.2s}
+.service-whatsapp-link:hover{color:#134C2D;transform:translateX(3px)}
+.service-whatsapp-link .icon{width:13px;height:13px}
+
+@media (max-width: 639px){
+  .service-card-obstetric{display:flex;flex-direction:column;padding:22px;gap:0}
+  .service-obstetric-image{width:100%;height:220px;min-height:0;max-height:none;object-position:50% 22%;border-radius:16px;margin-bottom:18px}
+  .service-card-obstetric-header{margin-bottom:12px}
+  .service-card-obstetric-header .service-icon{width:38px;height:38px}
+  .service-card-obstetric .service-tag-obstetric{font-size:8.5px;letter-spacing:.08em;padding:5px 9px}
+  .service-card-obstetric-body h3{font-size:23px;line-height:1.25;margin-bottom:10px}
+  .service-card-obstetric-body ul{margin:14px 0 18px;gap:8px}
+
+  .service-card-whatsapp{padding:22px}
+  .service-card-whatsapp-header{margin-bottom:12px}
+  .service-card-whatsapp-header .service-icon{width:38px;height:38px}
+  .service-card-whatsapp .service-tag-whatsapp{font-size:8.5px;letter-spacing:.08em;padding:5px 9px}
+  .service-card-whatsapp h3{font-size:22px;line-height:1.25;margin-bottom:10px}
+  .service-card-whatsapp ul{margin:14px 0 18px;gap:8px}
+}
 
 .about{background:#EEE4DC}
 .about-grid{display:grid;grid-template-columns:.84fr 1.16fr;gap:90px;align-items:center}
@@ -417,8 +451,7 @@ p{color:var(--brown)}
   .method-info-badge{left:12px;right:12px;bottom:12px;padding:14px 16px;border-radius:16px}
   .method-badge-title{font-size:17px}
   .method-badge-author{font-size:10px}
-  .service-note{grid-template-columns:auto 1fr}
-  .service-note-link{grid-column:2;justify-self:start}
+
   .split-head{gap:12px}
   .split-head>p{margin-top:0;font-size:14.5px;line-height:1.6}
   .about-photo img{width:100%}
