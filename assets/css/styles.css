@@ -210,9 +210,10 @@ p{color:var(--brown)}
 .service-card li{font-size:13.5px;line-height:1.45;color:#524741;display:flex;gap:10px;align-items:center}
 .service-card li:before{content:"✓";color:var(--sage);font-weight:700;font-size:14px}
 .service-card>a{font-size:13.5px;font-weight:700;color:var(--terracotta);display:inline-flex;align-items:center;gap:4px}
-.service-card-obstetric{grid-column:1/-1;background:linear-gradient(135deg,#FAF7F2 0%,#F5F9F6 100%);border-color:rgba(78,110,93,.25)}
+.service-card-obstetric{background:linear-gradient(135deg,#FAF7F2 0%,#F5F9F6 100%);border-color:rgba(78,110,93,.32);box-shadow:0 4px 18px rgba(78,110,93,.06)}
 .service-tag-obstetric{background:#E4ECE7;color:#2F5943}
-.service-card-obstetric .obstetric-bullets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:18px 0 22px}
+.service-card-taping{background:linear-gradient(135deg,#FAF7F2 0%,#FFF7F3 100%);border-color:rgba(184,90,66,.24)}
+.service-tag-complementary{background:#F7ECE6;color:#8F3C28}
 .service-note{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;background:#E9E5D5;border:1px solid rgba(78,110,93,.14);border-radius:18px;padding:16px 18px;margin-top:18px}
 .service-note>span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#D8E2DB;color:var(--sage);font-weight:700;flex:0 0 auto}
 .service-note>span .icon{width:15px;height:15px}
