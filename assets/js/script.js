@@ -21,10 +21,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+      const menuWasOpen = header.classList.contains("menu-open");
+
       header.classList.remove("menu-open");
       menuToggle?.setAttribute("aria-expanded", "false");
       menuToggle?.setAttribute("aria-label", "Abrir menu");
+
+      if (!link.hash || !target) return;
+
+      event.preventDefault();
+      const navigateToTarget = () => {
+        if (window.location.hash !== link.hash) {
+          window.location.hash = link.hash;
+        } else {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      };
+
+      if (!menuWasOpen) {
+        navigateToTarget();
+        return;
+      }
+
+      const mobileNav = document.querySelector(".mobile-nav");
+      let navigated = false;
+      let fallbackTimer;
+      const finishNavigation = (transitionEvent) => {
+        if (
+          navigated ||
+          (transitionEvent &&
+            (transitionEvent.target !== document.querySelector(".mobile-nav") ||
+              transitionEvent.propertyName !== "max-height"))
+        ) {
+          return;
+        }
+
+        navigated = true;
+        mobileNav?.removeEventListener("transitionend", finishNavigation);
+        window.clearTimeout(fallbackTimer);
+        navigateToTarget();
+      };
+
+      mobileNav?.addEventListener("transitionend", finishNavigation);
+      fallbackTimer = window.setTimeout(() => finishNavigation(), 400);
     });
   });
 
@@ -42,64 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.12 }
   );
   revealItems.forEach((el) => observer.observe(el));
-
-  // Keep the reader's place when a responsive grid changes height on resize.
-  // This prevents a row becoming a column above the current section from
-  // making the page appear to jump to a different point.
-  if ("ResizeObserver" in window) {
-    const responsiveGridSelector = [
-      ".hero-grid",
-      ".credential-strip",
-      ".trust-grid",
-      ".pain-grid",
-      ".sos-shell",
-      ".method-grid",
-      ".service-grid",
-      ".about-grid",
-      ".credential-list",
-      ".steps-grid",
-      ".expectation-grid",
-      ".instagram-feature",
-      ".instagram-topic-row",
-      ".faq-grid",
-      ".footer-grid",
-    ].join(",");
-    const responsiveGrids = [...document.querySelectorAll(responsiveGridSelector)];
-    const gridState = new WeakMap();
-
-    responsiveGrids.forEach((grid) => {
-      const rect = grid.getBoundingClientRect();
-      gridState.set(grid, {
-        height: rect.height,
-        bottom: rect.bottom + window.scrollY,
-      });
-    });
-
-    const gridResizeObserver = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        const grid = entry.target;
-        const state = gridState.get(grid);
-        if (!state) return;
-
-        const nextHeight = entry.contentRect.height;
-        const heightDelta = nextHeight - state.height;
-        const wasBelowGrid = window.scrollY > state.bottom - 12;
-
-        state.height = nextHeight;
-        state.bottom = grid.getBoundingClientRect().bottom + window.scrollY;
-
-        if (Math.abs(heightDelta) > 1 && wasBelowGrid) {
-          window.scrollTo({
-            top: Math.max(0, window.scrollY + heightDelta),
-            left: window.scrollX,
-            behavior: "instant",
-          });
-        }
-      });
-    });
-
-    responsiveGrids.forEach((grid) => gridResizeObserver.observe(grid));
-  }
 
   // S.O.S. Amamentação
   const checklist = document.querySelectorAll("#sos-checklist input[type='checkbox']");

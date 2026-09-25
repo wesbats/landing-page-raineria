@@ -18,7 +18,8 @@
   --sans:"Plus Jakarta Sans", Arial, sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;--anchor-offset:94px}
+main[id],section[id]{scroll-margin-top:var(--anchor-offset)}
 body{margin:0;background:var(--cream);color:var(--dark);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.menu-open{overflow:hidden}
 .svg-sprite{position:absolute;width:0;height:0;overflow:hidden}
@@ -369,6 +370,7 @@ p{color:var(--brown)}
   .sos-shell{grid-template-columns:1fr}
 }
 @media (max-width: 767px){
+  html{--anchor-offset:86px}
   .expectation-grid{grid-template-columns:1fr}
 }
 @media (max-width: 639px){
