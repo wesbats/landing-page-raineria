@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://proposta-raineria.wesbats.dev/sitemap.xml
+Sitemap: https://raineriasouza.com.br/sitemap.xml
