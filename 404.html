@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2C2420" />
+    <meta name="robots" content="noindex" />
+    <title>Página não encontrada | Rainéria Souza</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Caminhos absolutos: a 404 é servida em qualquer URL (ex.: /a/b/c) -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <style>
+      .nf{position:relative;overflow:hidden;min-height:calc(100svh - 83px);display:grid;place-items:center;padding:80px 0}
+      .nf:before,.nf:after{content:"";position:absolute;border-radius:50%;filter:blur(10px);pointer-events:none}
+      .nf:before{width:420px;height:420px;left:-140px;top:-120px;background:radial-gradient(circle,rgba(244,211,198,.75),transparent 70%)}
+      .nf:after{width:360px;height:360px;right:-120px;bottom:-140px;background:radial-gradient(circle,rgba(184,90,66,.14),transparent 70%)}
+      .nf-inner{position:relative;max-width:680px;text-align:center}
+      .nf-code{display:block;font-family:var(--serif);font-size:clamp(88px,16vw,150px);line-height:1;color:var(--blush);font-weight:600;letter-spacing:-.04em;margin-bottom:6px}
+      .nf h1{font-size:clamp(38px,5.4vw,64px);margin:14px 0 18px}
+      .nf p{font-size:17px;max-width:520px;margin:0 auto 34px}
+      .nf-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+      @media (max-width:640px){
+        .nf-actions .btn{width:100%}
+        .nf-header .brand{min-width:0}
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header nf-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="/" aria-label="Rainéria Souza — página inicial">
+          <span class="brand-photo">
+            <img src="/assets/images/raineria-retrato.webp" alt="" width="48" height="48" decoding="async" />
+          </span>
+          <span class="brand-copy">
+            <strong>Rainéria Souza</strong>
+            <small>Enfermagem Obstétrica · Amamentação</small>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <main class="nf">
+      <div class="container nf-inner">
+        <span class="nf-code" aria-hidden="true">404</span>
+        <span class="eyebrow">Página não encontrada</span>
+        <h1>Esse caminho não existe,<br /><em>mas o cuidado continua.</em></h1>
+        <p>O link pode ter mudado ou foi digitado com algum erro. Volte para a página inicial ou fale direto comigo pelo WhatsApp.</p>
+        <div class="nf-actions">
+          <a class="btn btn-primary btn-large" href="/">Voltar ao início</a>
+          <a
+            class="btn btn-outline-dark btn-large"
+            href="https://wa.me/5517997557070?text=Ol%C3%A1%2C%20Rain%C3%A9ria!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento."
+            target="_blank"
+            rel="noopener noreferrer"
+            >Falar no WhatsApp →</a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

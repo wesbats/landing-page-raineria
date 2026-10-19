@@ -1,0 +1,7 @@
+# Arquivos do repositório que não devem ir para o site
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+README.md
+PRODUCT.md

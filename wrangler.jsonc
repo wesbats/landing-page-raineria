@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers (static assets): site estático da raiz deste repositório
+  "name": "raineria-landing-page",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    // Link inexistente → serve 404.html com status 404 (sem isso a resposta vem vazia)
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
